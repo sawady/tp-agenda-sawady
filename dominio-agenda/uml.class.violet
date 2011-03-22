@@ -114,7 +114,7 @@ Nombrable</string>
     <void property="methods"> 
      <void property="text"> 
       <string>+horasInsumdidas(): Int
-+haTerminado(): void
++haTerminado(): Bool
 +masImportanteQue(evento: Evento): Bool</string> 
      </void> 
     </void> 
