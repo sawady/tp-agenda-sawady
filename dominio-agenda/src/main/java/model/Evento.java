@@ -1,8 +1,11 @@
 package model;
 
+import javax.management.RuntimeErrorException;
+
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Hours;
+import org.omg.CORBA.UserException;
 
 /**
  * Un evento posee una fecha y hora de inicio, una fecha y hora de fin, 
@@ -53,6 +56,11 @@ public class Evento {
 	public Evento(DateTime fecha_ini, DateTime fecha_fin, String descripcion,
 			Integer importancia) {
 		super();
+		
+		//validacion fecha ini anterior a fecha final
+//		if(fecha_ini.isAfter(fecha_fin))
+//			throw new UserException();
+		
 		this.fecha_ini = fecha_ini;
 		this.fecha_fin = fecha_fin;
 		this.descripcion = descripcion;
