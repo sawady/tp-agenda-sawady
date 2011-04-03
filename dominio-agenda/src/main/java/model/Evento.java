@@ -1,11 +1,9 @@
 package model;
 
-import javax.management.RuntimeErrorException;
-
 import org.joda.time.DateTime;
-import org.joda.time.Days;
 import org.joda.time.Hours;
-import org.omg.CORBA.UserException;
+import org.uqbar.commons.model.ObservableObject;
+import org.uqbar.commons.model.UserException;
 
 /**
  * Un evento posee una fecha y hora de inicio, una fecha y hora de fin, 
@@ -21,8 +19,12 @@ import org.omg.CORBA.UserException;
  * @author sawady
  *
  */
-public class Evento {
+public class Evento extends ObservableObject {
 	
+	public static final String IMPORTANCIA = "importancia";
+	public static final String DESCRIPCION = "descripcion";
+	public static final String FECHA_FIN = "fecha_fin";
+	public static final String FECHA_INI = "fecha_ini";
 	private DateTime fecha_ini;
 	private DateTime fecha_fin;
 	private String descripcion;
@@ -32,34 +34,43 @@ public class Evento {
 		return fecha_ini;
 	}
 	public void setFecha_ini(DateTime fecha_ini) {
-		this.fecha_ini = fecha_ini;
+		
+		//validacion fecha ini anterior a fecha final
+		if(fecha_ini.isAfter(fecha_fin))
+			throw new UserException("La fecha inicial es posterior a " +
+			"la fecha final");
+		
+		this.setProperty(FECHA_INI, fecha_ini);
 	}
 	public DateTime getFecha_fin() {
 		return fecha_fin;
 	}
 	public void setFecha_fin(DateTime fecha_fin) {
-		this.fecha_fin = fecha_fin;
+		this.setProperty(FECHA_FIN,fecha_fin);
 	}
 	public String getDescripcion() {
 		return descripcion;
 	}
 	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+		this.setProperty(DESCRIPCION,descripcion);
 	}
 	public Integer getImportancia() {
 		return importancia;
 	}
 	public void setImportancia(Integer importancia) {
-		this.importancia = importancia;
+		this.setProperty(IMPORTANCIA,importancia);
+	}
+	
+	/**
+	 * Constructor que deja al objeto inconsistente
+	 */
+	public Evento(){
+		
 	}
 	
 	public Evento(DateTime fecha_ini, DateTime fecha_fin, String descripcion,
 			Integer importancia) {
 		super();
-		
-		//validacion fecha ini anterior a fecha final
-//		if(fecha_ini.isAfter(fecha_fin))
-//			throw new UserException();
 		
 		this.fecha_ini = fecha_ini;
 		this.fecha_fin = fecha_fin;
