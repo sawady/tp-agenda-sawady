@@ -7,7 +7,7 @@ import org.uqbar.commons.model.Home;
 import org.uqbar.commons.model.ObservableObject;
 
 /**
- * Agrega, elimina y organiza ciudades, contactos y eventos
+ * Agrega, elimina y actualiza ciudades, contactos y eventos
  * @author sawady
  *
  */
@@ -60,15 +60,15 @@ public class Agenda extends ObservableObject {
 	}
 
 	public void update(Contacto model) {
-		ACA VA LO DE UPDATE DE HOME
+		//TODO home
 	}
 	
 	public void update(Ciudad ciudad){
-		ACA VA UN UPDATE
+		//TODO home
 	}
 	
 	public void update(Evento evento){
-		ACA VA UN UPDATE 
+		//TODO home 
 	}
 	
 }
