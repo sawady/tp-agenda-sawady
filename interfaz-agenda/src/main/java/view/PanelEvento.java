@@ -2,6 +2,7 @@ package view;
 
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.Home;
 import org.uqbar.lacar.ui.model.Action;
@@ -37,6 +38,12 @@ public class PanelEvento extends PanelAgendaElement<Evento> {
 				// TODO getHome().delete();
 			}
 		});
-	}	
+	}
+
+	@Override
+	protected void describeResultsGrid(Table<Evento> builder) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

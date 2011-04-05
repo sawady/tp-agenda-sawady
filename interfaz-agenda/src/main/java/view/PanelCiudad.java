@@ -2,8 +2,11 @@ package view;
 
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.widgets.tables.Column;
+import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.Home;
+import org.uqbar.commons.model.SearchByExample;
 import org.uqbar.lacar.ui.model.Action;
 
 import model.Ciudad;
@@ -17,6 +20,8 @@ public class PanelCiudad extends PanelAgendaElement<Ciudad> {
 	}
 	
 	protected void initialize(){
+		this.createResultsGrid(Ciudad.class);
+		
 		PanelBotonera botonera = new PanelBotonera(this);
 		
 		botonera.agregarBoton("Crear", new Action() {
@@ -36,6 +41,15 @@ public class PanelCiudad extends PanelAgendaElement<Ciudad> {
 				// TODO getHome().delete();
 			}
 		});
+	}
+
+	@Override
+	protected void describeResultsGrid(Table<Ciudad> table) {
+		Column<Ciudad> nombreColumn = new Column<Ciudad>(table);
+		nombreColumn.setTitle("Nombre");
+		nombreColumn.setPreferredSize(100);
+		nombreColumn.bindContentsToProperty(Ciudad.NOMBRE);
+		// table.add(column);		
 	}	
 
 }

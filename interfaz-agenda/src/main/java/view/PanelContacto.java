@@ -2,6 +2,7 @@ package view;
 
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.Home;
 import org.uqbar.lacar.ui.model.Action;
@@ -36,6 +37,12 @@ public class PanelContacto extends PanelAgendaElement<Contacto> {
 				// TODO getHome().delete();
 			}
 		});
+	}
+
+	@Override
+	protected void describeResultsGrid(Table<Contacto> builder) {
+		// TODO Auto-generated method stub
+		
 	}	
 
 }
