@@ -2,7 +2,7 @@ package model;
 
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
-import org.uqbar.commons.model.ObservableObject;
+import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.model.UserException;
 
 /**
@@ -19,7 +19,7 @@ import org.uqbar.commons.model.UserException;
  * @author sawady
  *
  */
-public class Evento extends ObservableObject {
+public class Evento extends Entity {
 	
 	public static final String IMPORTANCIA = "importancia";
 	public static final String DESCRIPCION = "descripcion";

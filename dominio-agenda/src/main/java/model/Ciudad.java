@@ -1,13 +1,13 @@
 package model;
 
-import org.uqbar.commons.model.ObservableObject;
+import org.uqbar.commons.model.Entity;
 
 /**
  * Las ciudades tienen un nombre.
  * @author sawady
  *
  */
-public class Ciudad extends ObservableObject implements Nombrable {
+public class Ciudad extends Entity implements Nombrable {
 	
 	public static final String NOMBRE = "nombre";
 	private String nombre;
