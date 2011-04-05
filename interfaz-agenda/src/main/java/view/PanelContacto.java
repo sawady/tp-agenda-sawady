@@ -13,16 +13,15 @@ public class PanelContacto extends PanelAgendaElement<Contacto> {
 	public PanelContacto(Home<Contacto> home, Panel parentPanel,
 			WindowOwner windowOwner) {
 		super(home, parentPanel, windowOwner);
+		this.initialize();
 	}
 	
 	protected void initialize(){
-		this.setLayout(new VerticalLayout());
-		
 		PanelBotonera botonera = new PanelBotonera(this);
 		
 		botonera.agregarBoton("Crear", new Action() {
 			public void execute() {
-				new DialogContactoAlta(getWindowOwner(), getHome());
+				new DialogContactoAlta(getWindowOwner(), getHome()).open();
 			}
 		});
 		

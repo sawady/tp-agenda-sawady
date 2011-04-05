@@ -2,7 +2,9 @@ package view;
 
 import homes.Agenda;
 
+import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.layout.VerticalLayout;
+import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
@@ -25,10 +27,11 @@ public abstract class DialogCiudad extends DialogAbstractAgendaElement<Ciudad> {
 
 	@Override
 	protected void createFormPanel(Panel panel) {
-		panel.setLayout(new VerticalLayout());
-	
-		TextBox nombre_tx = new TextBox(panel);
-		nombre_tx.bindValueToProperty(Ciudad.NOMBRE);
+		Panel form = new Panel(panel);
+		form.setLayout(new ColumnLayout(2));
+		
+		new Label(form).setText("Nombre");
+		new TextBox(panel).bindValueToProperty(Ciudad.NOMBRE);
 	}
 
 }

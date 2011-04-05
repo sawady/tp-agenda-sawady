@@ -3,8 +3,10 @@ import homes.Agenda;
 import model.Contacto;
 
 import org.uqbar.arena.actions.MessageSend;
+import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
+import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Dialog;
@@ -28,26 +30,26 @@ public abstract class DialogContacto extends DialogAbstractAgendaElement<Contact
 	@Override
 	protected void createFormPanel(Panel panel) {
 		
-		panel.setLayout(new VerticalLayout());
+		Panel form = new Panel(panel);
+		form.setLayout(new ColumnLayout(2));
 	
-		TextBox nombre_tx = new TextBox(panel);
-		nombre_tx.bindValueToProperty(Contacto.NOMBRE);
+		new Label(form).setText("Nombre");
+		new TextBox(form).bindValueToProperty(Contacto.NOMBRE);
 		
-		TextBox telefono_tx = new TextBox(panel);
-		telefono_tx.bindValueToProperty(Contacto.TELEFONO);
+		new Label(form).setText("Telefono");
+		new TextBox(form).bindValueToProperty(Contacto.TELEFONO);
 		
-		TextBox mail_tx = new TextBox(panel);
-		mail_tx.bindValueToProperty(Contacto.MAIL);
+		new Label(form).setText("Mail");
+		new TextBox(form).bindValueToProperty(Contacto.MAIL);
 
-		TextBox observaciones_tx = new TextBox(panel);
-		observaciones_tx.bindValueToProperty(Contacto.OBSERVACIONES);
+		new Label(form).setText("Observaciones");		
+		new TextBox(form).bindValueToProperty(Contacto.OBSERVACIONES);
 		
-		TextBox ciudad_tx = new TextBox(panel);
-		ciudad_tx.bindValueToProperty(Contacto.CIUDAD);
+		new Label(form).setText("Ciudad");
+		new TextBox(form).bindValueToProperty(Contacto.CIUDAD);
 		
-		TextBox fechanac_tx = new TextBox(panel);
-		fechanac_tx.bindValueToProperty(Contacto.FECHA_NACIMIENTO);
-		
+		new Label(form).setText("Fecha de Nacimiento");
+		new TextBox(form).bindValueToProperty(Contacto.FECHA_NACIMIENTO);		
 	}
 
 }

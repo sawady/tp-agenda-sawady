@@ -18,9 +18,9 @@ public class WindowAgenda extends MainWindow<Agenda> {
 	public void createContents(Panel mainPanel) {
 		mainPanel.setLayoutInColumns(3);
 		
-		new PanelAgendaElement<Contacto>(this.getModel().getHome(Contacto.class), mainPanel, this.getOwner());
-		new PanelAgendaElement<Evento>(this.getModel().getHome(Evento.class), mainPanel, this.getOwner());
-		new PanelAgendaElement<Ciudad>(this.getModel().getHome(Ciudad.class), mainPanel, this.getOwner());
+		new PanelContacto(this.getModel().getHome(Contacto.class), mainPanel, this.getOwner());
+		new PanelEvento(this.getModel().getHome(Evento.class), mainPanel, this.getOwner());
+		new PanelCiudad(this.getModel().getHome(Ciudad.class), mainPanel, this.getOwner());
 	}
 	
 	public static void main(String[] args) {

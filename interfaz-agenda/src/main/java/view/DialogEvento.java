@@ -4,7 +4,9 @@ import homes.Agenda;
 import model.Contacto;
 import model.Evento;
 
+import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.layout.VerticalLayout;
+import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
@@ -25,19 +27,20 @@ public abstract class DialogEvento extends DialogAbstractAgendaElement<Evento> {
 	@Override
 	protected void createFormPanel(Panel panel) {
 		
-		panel.setLayout(new VerticalLayout());
+		Panel form = new Panel(panel);
+		form.setLayout(new ColumnLayout(2));
 		
-		TextBox fechaini_tx = new TextBox(panel);
-		fechaini_tx.bindValueToProperty(Evento.FECHA_INI);
+		new Label(form).setText("Fecha Inicial");		
+		new TextBox(form).bindValueToProperty(Evento.FECHA_INI);
 		
-		TextBox fechafin_tx = new TextBox(panel);
-		fechafin_tx.bindValueToProperty(Evento.FECHA_FIN);
+		new Label(form).setText("Fecha Final");		
+		new TextBox(form).bindValueToProperty(Evento.FECHA_FIN);
 		
-		TextBox descrip_tx = new TextBox(panel);
-		descrip_tx.bindValueToProperty(Evento.DESCRIPCION);
+		new Label(form).setText("Fecha Descripcion");		
+		new TextBox(form).bindValueToProperty(Evento.DESCRIPCION);
 
-		TextBox importancia_tx = new TextBox(panel);
-		importancia_tx.bindValueToProperty(Evento.IMPORTANCIA);
+		new Label(form).setText("Importancia");		
+		new TextBox(form).bindValueToProperty(Evento.IMPORTANCIA);
 		
 	}
 

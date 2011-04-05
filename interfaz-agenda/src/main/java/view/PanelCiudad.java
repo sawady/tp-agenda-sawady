@@ -13,16 +13,15 @@ public class PanelCiudad extends PanelAgendaElement<Ciudad> {
 	public PanelCiudad(Home<Ciudad> home, Panel parentPanel,
 			WindowOwner windowOwner) {
 		super(home, parentPanel, windowOwner);
+		this.initialize();
 	}
 	
 	protected void initialize(){
-		this.setLayout(new VerticalLayout());
-		
 		PanelBotonera botonera = new PanelBotonera(this);
 		
 		botonera.agregarBoton("Crear", new Action() {
 			public void execute() {
-				new DialogCiudadAlta(getWindowOwner(), getHome());
+				new DialogCiudadAlta(getWindowOwner(), getHome()).open();
 			}
 		});
 		

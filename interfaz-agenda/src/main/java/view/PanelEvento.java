@@ -14,16 +14,15 @@ public class PanelEvento extends PanelAgendaElement<Evento> {
 	public PanelEvento(Home<Evento> home, Panel parentPanel,
 			WindowOwner windowOwner) {
 		super(home, parentPanel, windowOwner);
+		this.initialize();
 	}
 	
 	protected void initialize(){
-		this.setLayout(new VerticalLayout());
-		
 		PanelBotonera botonera = new PanelBotonera(this);
 		
 		botonera.agregarBoton("Crear", new Action() {
 			public void execute() {
-				new DialogEventoAlta(getWindowOwner(), getHome());
+				new DialogEventoAlta(getWindowOwner(), getHome()).open();
 			}
 		});
 		

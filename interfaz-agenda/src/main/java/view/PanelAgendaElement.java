@@ -8,7 +8,7 @@ import org.uqbar.commons.model.Home;
 import org.uqbar.lacar.ui.model.Action;
 
 
-public class PanelAgendaElement<T extends Entity> extends Panel{
+public abstract class PanelAgendaElement<T extends Entity> extends Panel{
 	
 	private Home<T> home;
 	private WindowOwner windowOwner;
@@ -30,31 +30,11 @@ public class PanelAgendaElement<T extends Entity> extends Panel{
 		super(parentPanel);
 		this.home = home;
 		this.windowOwner = windowOwner;
-		this.initialize();
+		this.setLayout(new VerticalLayout());
 	}
 	
-	protected void initialize(){
-		this.setLayout(new VerticalLayout());
-		
-		PanelBotonera botonera = new PanelBotonera(this);
-		
-		botonera.agregarBoton("Crear", new Action() {
-			public void execute() {
-				// TODO new DialogCiudad(getOwner(), getHome(), );
-			}
-		});
-		
-		botonera.agregarBoton("Modificar", new Action() {
-			public void execute() {
-				// TODO DialogCiudad(getOwner(), ALGO, getHome());
-			}
-		});
-		
-		botonera.agregarBoton("Borrar", new Action() {
-			public void execute() {
-				// TODO getHome().delete();
-			}
-		});
+	protected void initialize(){		
+		//TODO falta completar con la tabla
 	}
 	
 }
