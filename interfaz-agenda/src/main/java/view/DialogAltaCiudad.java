@@ -7,8 +7,8 @@ import org.uqbar.arena.windows.WindowOwner;
 
 public class DialogAltaCiudad extends DialogAbstractCiudad {
 
-	public DialogAltaCiudad(WindowOwner owner, Agenda aplicationObject) {
-		super(owner, new Ciudad(), aplicationObject);
+	public DialogAltaCiudad(WindowOwner owner, Agenda agenda) {
+		super(owner, new Ciudad(), agenda);
 	}
 
 	@Override

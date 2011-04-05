@@ -7,9 +7,8 @@ import org.uqbar.arena.windows.WindowOwner;
 
 public class DialogModificarEvento extends DialogAbstractEvento {
 
-	public DialogModificarEvento(WindowOwner owner, Evento model,
-			Agenda aplicationObject) {
-		super(owner, model, aplicationObject);
+	public DialogModificarEvento(WindowOwner owner, Evento model, Agenda agenda) {
+		super(owner, model, agenda);
 	}
 
 	@Override

@@ -8,8 +8,7 @@ import org.uqbar.arena.windows.WindowOwner;
 public class DialogModificarContacto extends DialogAbstractContacto {
 
 
-	public DialogModificarContacto(WindowOwner owner, Contacto model,
-			Agenda agenda) {
+	public DialogModificarContacto(WindowOwner owner, Contacto model, Agenda agenda) {
 		super(owner, model, agenda);
 	}
 
