@@ -4,10 +4,7 @@ import model.Contacto;
 
 import org.apache.commons.collections.Predicate;
 import org.uqbar.commons.model.CollectionBasedHome;
-/**
- * 
- * @author npasserini
- */
+
 public class ContactoHomeColeccionImpl extends CollectionBasedHome<Contacto> {
 
 	public ContactoHomeColeccionImpl() {
@@ -20,12 +17,12 @@ public class ContactoHomeColeccionImpl extends CollectionBasedHome<Contacto> {
 	
 	@Override
 	public Contacto createExample() {
-		throw new UnsupportedOperationException("No se puede crear un ejemplo de contacto");
+		return new Contacto();
 	}
 
 	@Override
 	protected Predicate getCriterio(Contacto example) {
-		throw new UnsupportedOperationException("No se puede crear un criterio para buscar contacto");
+		return this.getCriterioTodas();
 	}
 
 }

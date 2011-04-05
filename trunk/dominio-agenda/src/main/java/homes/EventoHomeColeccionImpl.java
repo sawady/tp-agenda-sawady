@@ -20,12 +20,12 @@ public class EventoHomeColeccionImpl extends CollectionBasedHome<Evento> {
 	
 	@Override
 	public Evento createExample() {
-		throw new UnsupportedOperationException("No se puede crear un ejemplo de contacto");
+		return new Evento();
 	}
 
 	@Override
 	protected Predicate getCriterio(Evento example) {
-		throw new UnsupportedOperationException("No se puede crear un criterio para buscar contacto");
+		return this.getCriterioTodas();
 	}
 
 }
