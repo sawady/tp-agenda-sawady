@@ -20,12 +20,12 @@ public class CiudadHomeColeccionImpl extends CollectionBasedHome<Ciudad> {
 	
 	@Override
 	public Ciudad createExample() {
-		throw new UnsupportedOperationException("No se puede crear un ejemplo de contacto");
+		return new Ciudad();
 	}
 
 	@Override
 	protected Predicate getCriterio(Ciudad example) {
-		throw new UnsupportedOperationException("No se puede crear un criterio para buscar contacto");
+		return this.getCriterioTodas();
 	}
 
 }
