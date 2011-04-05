@@ -1,7 +1,7 @@
 package model;
 
 import org.joda.time.DateTime;
-import org.uqbar.commons.model.ObservableObject;
+import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.model.UserException;
 
 /**
@@ -9,7 +9,7 @@ import org.uqbar.commons.model.UserException;
  * un campo de observaciones, y una ciudad.
  * @author sawady
  */
-public class Contacto extends ObservableObject implements Nombrable {
+public class Contacto extends Entity implements Nombrable {
 	
 	public static final String OBSERVACIONES = "observaciones";
 	public static final String MAIL = "mail";
