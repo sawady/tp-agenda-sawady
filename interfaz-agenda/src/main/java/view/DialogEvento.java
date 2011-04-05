@@ -1,6 +1,6 @@
 package view;
 
-import model.Agenda;
+import homes.Agenda;
 import model.Contacto;
 import model.Evento;
 
@@ -8,22 +8,23 @@ import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.Home;
 
-public abstract class DialogAbstractEvento extends DialogAbstractAgendaElement<Evento> {
+public abstract class DialogEvento extends DialogAbstractAgendaElement<Evento> {
 
-	public DialogAbstractEvento(WindowOwner owner, Evento model,
-			Agenda aplicationObject) {
-		super(owner, model, aplicationObject);
+	public DialogEvento(WindowOwner owner, Evento model, Home<Evento> home) {
+		super(owner, model, home);
 	}
-	
+
 	@Override
 	protected void createMainTemplate(Panel mainPanel) {
-		this.setTitle("ABM de Contactos");
+		this.setTitle("ABM de Eventos");
 		super.createMainTemplate(mainPanel);
 	}
 
 	@Override
 	protected void createFormPanel(Panel panel) {
+		
 		panel.setLayout(new VerticalLayout());
 		
 		TextBox fechaini_tx = new TextBox(panel);

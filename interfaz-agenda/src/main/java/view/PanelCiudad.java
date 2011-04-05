@@ -1,44 +1,42 @@
 package view;
 
-import model.Agenda;
-
+import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.Home;
 import org.uqbar.lacar.ui.model.Action;
 
-public class PanelCiudad extends PanelConBotoneraYLista {
+import model.Ciudad;
 
-	public PanelCiudad(Agenda agenda, Panel parentPanel,
-			WindowAgenda agendaWindow) {
-		super(agenda, parentPanel, agendaWindow);
-		this.initialize();
-	}
+public class PanelCiudad extends PanelAgendaElement<Ciudad> {
 
-	@Override
-	protected void createContents() {		
-		this.getBotonera().agregarBoton("Crear",new AltaCiudadAction());
-		this.getBotonera().agregarBoton("Modificar", new ModificarCiudadAction());
-		this.getBotonera().agregarBoton("Borrar", new BajaCiudadAction());
+	public PanelCiudad(Home<Ciudad> home, Panel parentPanel,
+			WindowOwner windowOwner) {
+		super(home, parentPanel, windowOwner);
 	}
 	
-	private class AltaCiudadAction implements Action {
-		public void execute() {
-			new DialogAltaCiudad(getOwner(), getAgenda());
-		}
-	}
-	
-	private class ModificarCiudadAction implements Action {
+	protected void initialize(){
+		this.setLayout(new VerticalLayout());
 		
-		public void execute() {
-			//new DialogModificarCiudad(getOwner(), ALGO, getAgenda());
-		}
-	}
-
-	private class BajaCiudadAction implements Action {
+		PanelBotonera botonera = new PanelBotonera(this);
 		
-		public void execute() {
-			//getAgenda().eliminarCiudad(ALGO);
-		}
+		botonera.agregarBoton("Crear", new Action() {
+			public void execute() {
+				new DialogCiudadAlta(getWindowOwner(), getHome());
+			}
+		});
 		
-	}
+		botonera.agregarBoton("Modificar", new Action() {
+			public void execute() {
+				//TODO new DialogCiudadModificion(getOwner(), ALGO, getHome());
+			}
+		});
+		
+		botonera.agregarBoton("Borrar", new Action() {
+			public void execute() {
+				// TODO getHome().delete();
+			}
+		});
+	}	
 
 }

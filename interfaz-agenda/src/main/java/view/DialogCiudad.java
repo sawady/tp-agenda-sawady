@@ -1,22 +1,28 @@
 package view;
 
+import homes.Agenda;
+
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.Home;
 
-import model.Agenda;
 import model.Ciudad;
 import model.Contacto;
 
-public abstract class DialogAbstractCiudad extends
-		DialogAbstractAgendaElement<Ciudad> {
+public abstract class DialogCiudad extends DialogAbstractAgendaElement<Ciudad> {
 
-	public DialogAbstractCiudad(WindowOwner owner, Ciudad model,
-			Agenda aplicationObject) {
-		super(owner, model, aplicationObject);
+	public DialogCiudad(WindowOwner owner, Ciudad model, Home<Ciudad> home) {
+		super(owner, model, home);
 	}
-	
+
+	@Override
+	protected void createMainTemplate(Panel mainPanel) {
+		this.setTitle("ABM de Ciudades");
+		super.createMainTemplate(mainPanel);
+	}
+
 	@Override
 	protected void createFormPanel(Panel panel) {
 		panel.setLayout(new VerticalLayout());

@@ -1,46 +1,42 @@
 package view;
 
+import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.Home;
 import org.uqbar.lacar.ui.model.Action;
 
-import model.Agenda;
+import model.Contacto;
 
-public class PanelContacto extends PanelConBotoneraYLista {
-	
-	public PanelContacto(Agenda agenda, Panel parentPanel,
-			WindowAgenda agendaWindow) {
-		super(agenda, parentPanel, agendaWindow);
-		this.initialize();
-	}
+public class PanelContacto extends PanelAgendaElement<Contacto> {
 
-	@Override
-	protected void createContents() {		
-		this.getBotonera().agregarBoton("Crear", new AltaContactoAction());
-		this.getBotonera().agregarBoton("Modificar", new ModificarContactoAction());
-		this.getBotonera().agregarBoton("Borrar", new BajaContactoAction());
+	public PanelContacto(Home<Contacto> home, Panel parentPanel,
+			WindowOwner windowOwner) {
+		super(home, parentPanel, windowOwner);
 	}
 	
-	private class AltaContactoAction implements Action {
-
-		public void execute() {
-			new DialogAltaContacto(getOwner(), getAgenda()).open();
-		}		
+	protected void initialize(){
+		this.setLayout(new VerticalLayout());
 		
-	}
-	
-	private class ModificarContactoAction implements Action {
+		PanelBotonera botonera = new PanelBotonera(this);
 		
-		public void execute() {
-			//new DialogModificarEvento(getOwner(), ALGO, getAgenda());
-		}
-	}
-
-	private class BajaContactoAction implements Action {
+		botonera.agregarBoton("Crear", new Action() {
+			public void execute() {
+				new DialogContactoAlta(getWindowOwner(), getHome());
+			}
+		});
 		
-		public void execute() {
-			//getAgenda().eliminarEvento(ALGO);
-		}
+		botonera.agregarBoton("Modificar", new Action() {
+			public void execute() {
+				//TODO new DialogContactoModificion(getOwner(), ALGO, getHome());
+			}
+		});
 		
-	}
+		botonera.agregarBoton("Borrar", new Action() {
+			public void execute() {
+				// TODO getHome().delete();
+			}
+		});
+	}	
 
 }

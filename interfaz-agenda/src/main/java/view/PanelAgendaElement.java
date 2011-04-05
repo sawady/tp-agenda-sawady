@@ -3,17 +3,34 @@ package view;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.model.Home;
 import org.uqbar.lacar.ui.model.Action;
 
-import model.Contacto;
-import model.Evento;
 
-public class PanelEvento extends PanelAgendaElement<Evento> {
+public class PanelAgendaElement<T extends Entity> extends Panel{
+	
+	private Home<T> home;
+	private WindowOwner windowOwner;
+	
+	public WindowOwner getWindowOwner() {
+		return windowOwner;
+	}	
+	
+	public Home<T> getHome() {
+		return home;
+	}
 
-	public PanelEvento(Home<Evento> home, Panel parentPanel,
-			WindowOwner windowOwner) {
-		super(home, parentPanel, windowOwner);
+	public void setHome(Home<T> home) {
+		this.home = home;
+	}
+
+	public PanelAgendaElement(Home<T> home, Panel parentPanel,
+		WindowOwner windowOwner) {
+		super(parentPanel);
+		this.home = home;
+		this.windowOwner = windowOwner;
+		this.initialize();
 	}
 	
 	protected void initialize(){
@@ -23,13 +40,13 @@ public class PanelEvento extends PanelAgendaElement<Evento> {
 		
 		botonera.agregarBoton("Crear", new Action() {
 			public void execute() {
-				new DialogEventoAlta(getWindowOwner(), getHome());
+				// TODO new DialogCiudad(getOwner(), getHome(), );
 			}
 		});
 		
 		botonera.agregarBoton("Modificar", new Action() {
 			public void execute() {
-				//TODO new DialogEventoModificion(getOwner(), ALGO, getHome());
+				// TODO DialogCiudad(getOwner(), ALGO, getHome());
 			}
 		});
 		
@@ -38,6 +55,6 @@ public class PanelEvento extends PanelAgendaElement<Evento> {
 				// TODO getHome().delete();
 			}
 		});
-	}	
-
+	}
+	
 }

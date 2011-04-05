@@ -1,5 +1,5 @@
 package view;
-import model.Agenda;
+import homes.Agenda;
 import model.Contacto;
 
 import org.uqbar.arena.actions.MessageSend;
@@ -12,12 +12,13 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.Home;
 
 
-public abstract class DialogAbstractContacto extends DialogAbstractAgendaElement<Contacto> {
+public abstract class DialogContacto extends DialogAbstractAgendaElement<Contacto> {
 
-	public DialogAbstractContacto(WindowOwner owner, Contacto model, Agenda agenda) {
-		super(owner, model, agenda);
+	public DialogContacto(WindowOwner owner, Contacto model,
+			Home<Contacto> home) {
+		super(owner, model, home);
 	}
-	
+
 	@Override
 	protected void createMainTemplate(Panel mainPanel) {
 		this.setTitle("ABM de Contactos");
