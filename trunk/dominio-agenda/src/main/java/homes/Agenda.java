@@ -22,7 +22,7 @@ public class Agenda extends Entity implements Application {
 	private Map<Class<?>, Home<?>> homes = new HashMap<Class<?>, Home<?>>();
 
 	public Agenda(HomeFactory homef){
-		homef.addHomes(this.homes);		
+		new InMemoryHomeFactory().addHomes(this.homes);		
 	}
 
 	@SuppressWarnings("unchecked")
