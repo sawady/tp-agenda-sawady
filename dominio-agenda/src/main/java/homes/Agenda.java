@@ -21,7 +21,7 @@ public class Agenda extends Entity implements Application {
 	
 	private Map<Class<?>, Home<?>> homes = new HashMap<Class<?>, Home<?>>();
 
-	public Agenda(HomeFactory homef){
+	public Agenda(){
 		new InMemoryHomeFactory().addHomes(this.homes);		
 	}
 
