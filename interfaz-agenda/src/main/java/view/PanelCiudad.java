@@ -22,21 +22,21 @@ public class PanelCiudad extends PanelConBotoneraYLista {
 	
 	private class AltaCiudadAction implements Action {
 		public void execute() {
-			new DialogAltaEvento(getOwner(), getAgenda());
+			new DialogAltaCiudad(getOwner(), getAgenda());
 		}
 	}
 	
 	private class ModificarCiudadAction implements Action {
 		
 		public void execute() {
-			//new DialogModificarEvento(getOwner(), ALGO, getAgenda());
+			//new DialogModificarCiudad(getOwner(), ALGO, getAgenda());
 		}
 	}
 
 	private class BajaCiudadAction implements Action {
 		
 		public void execute() {
-			//getAgenda().eliminarEvento(ALGO);
+			//getAgenda().eliminarCiudad(ALGO);
 		}
 		
 	}
