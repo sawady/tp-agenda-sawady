@@ -1,11 +1,6 @@
 package model;
 
-import static org.junit.Assert.*;
 import homes.Agenda;
-
-import org.junit.Before;
-import org.junit.Test;
-import junit.framework.TestCase;
 
 public class AgendaTestCase {
 	

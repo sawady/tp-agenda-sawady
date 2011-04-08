@@ -5,7 +5,6 @@ import static org.mockito.Mockito.mock;
 
 import org.joda.time.DateTime;
 import org.junit.Before;
-import org.junit.Test;
 
 public class ContactoTestCase {
 	
