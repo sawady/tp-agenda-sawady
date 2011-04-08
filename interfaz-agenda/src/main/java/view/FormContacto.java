@@ -1,36 +1,26 @@
 package view;
-import homes.Agenda;
+
 import model.Contacto;
 
-import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.layout.ColumnLayout;
-import org.uqbar.arena.layout.VerticalLayout;
-import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
-import org.uqbar.arena.windows.Dialog;
-import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.commons.model.Home;
 
-
-public abstract class DialogContacto extends DialogAbstractAgendaElement<Contacto> {
-
-	public DialogContacto(WindowOwner owner, Contacto model,
-			Home<Contacto> home) {
-		super(owner, model, home);
+public class FormContacto extends EntityStuffForUI<Contacto> {
+	
+	public FormContacto(Home<Contacto> home) {
+		super(home);
 	}
 
-	@Override
-	protected void createMainTemplate(Panel mainPanel) {
-		this.setTitle("ABM de Contactos");
-		super.createMainTemplate(mainPanel);
+	public String getTitle() {
+		return "Contactos";
 	}
 
-	@Override
-	protected void createFormPanel(Panel panel) {
+	public Panel createFormPanel(Panel form) {
 		
-		Panel form = new Panel(panel);
 		form.setLayout(new ColumnLayout(2));
 	
 		new Label(form).setText("Nombre");
@@ -49,7 +39,21 @@ public abstract class DialogContacto extends DialogAbstractAgendaElement<Contact
 		new TextBox(form).bindValueToProperty(Contacto.CIUDAD);
 		
 		new Label(form).setText("Fecha de Nacimiento");
-		new TextBox(form).bindValueToProperty(Contacto.FECHA_NACIMIENTO);		
+		new TextBox(form).bindValueToProperty(Contacto.FECHA_NACIMIENTO);
+		
+		return form;
+	}
+	
+	public void describeResultsGrid(Table<Contacto> table) {
+		table.agregarColumna("Nombre", Contacto.NOMBRE, 100);
+		table.agregarColumna("Mail", Contacto.MAIL, 100);
+		table.agregarColumna("Tel", Contacto.TELEFONO, 100);
+		table.agregarColumna("Observaciones", Contacto.OBSERVACIONES, 100);
+		table.agregarColumna("Fecha de Nacimiento", Contacto.FECHA_NACIMIENTO, 100);
+	}
+
+	public Contacto newInstance() {
+		return new Contacto();
 	}
 
 }

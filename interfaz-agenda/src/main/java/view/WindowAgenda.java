@@ -1,29 +1,59 @@
 package view;
 import homes.Agenda;
-
 import model.Ciudad;
 import model.Contacto;
 import model.Evento;
 
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.windows.MainWindow;
+import org.uqbar.arena.windows.SimpleWindow;
+import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.commons.model.SearchByExample;
+import org.uqbar.lacar.ui.model.Action;
 
-public class WindowAgenda extends MainWindow<Agenda> {
+public class WindowAgenda extends SimpleWindow<Agenda> {
+
+	public WindowAgenda(WindowOwner parent, Agenda model) {
+		super(parent, model);
+	}
 	
-	public WindowAgenda(Agenda model) {
-		super(model);
+	@Override
+	protected void createMainTemplate(Panel formBuilder) {
+		this.setTitle("Agenda");
+		this.setTaskDescription("Elija un elemento a administrar:");
+		super.createMainTemplate(formBuilder);
 	}
 
 	@Override
 	public void createContents(Panel mainPanel) {
-		mainPanel.setLayoutInColumns(3);
-		
-		new PanelContacto(this.getModel().getHome(Contacto.class), mainPanel, this.getOwner());
-		new PanelEvento(this.getModel().getHome(Evento.class), mainPanel, this.getOwner());
-		new PanelCiudad(this.getModel().getHome(Ciudad.class), mainPanel, this.getOwner());
+		mainPanel.setHorizontalLayout();
+		super.createContents(mainPanel);
 	}
-	
-	public static void main(String[] args) {
-        new WindowAgenda(new Agenda()).startApplication();
-    }
+
+	@Override
+	protected void addActions(Panel actionsPanel) {
+		PanelBotonera botonera = new PanelBotonera(actionsPanel);
+		
+		botonera.agregarBoton("Contactos", new Action() {			
+			public void execute() {
+				new SearchWindow<Contacto, SearchByExample<Contacto>>(getOwner(), new FormContacto(getModel().getHome(Contacto.class))).open();
+			}
+		});
+		
+		botonera.agregarBoton("Eventos", new Action() {
+			public void execute() {
+				new SearchWindow<Evento, SearchByExample<Evento>>(getOwner(), new FormEvento(getModel().getHome(Evento.class))).open();		
+			}
+		});
+		
+		botonera.agregarBoton("Ciudades", new Action() {
+			public void execute() {
+				new SearchWindow<Ciudad, SearchByExample<Ciudad>>(getOwner(), new FormCiudad(getModel().getHome(Ciudad.class))).open();		
+			}
+		});
+
+	}
+
+	@Override
+	protected void createFormPanel(Panel mainPanel) {
+	}
 }

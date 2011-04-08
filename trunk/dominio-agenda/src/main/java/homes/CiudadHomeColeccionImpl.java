@@ -11,6 +11,9 @@ import org.uqbar.commons.model.CollectionBasedHome;
 public class CiudadHomeColeccionImpl extends CollectionBasedHome<Ciudad> {
 
 	public CiudadHomeColeccionImpl() {
+		this.create(new Ciudad("Quilmes"));
+		this.create(new Ciudad("Bera"));
+		this.create(new Ciudad("Lanus"));
 	}
 
 	@Override

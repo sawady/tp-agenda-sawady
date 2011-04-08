@@ -3,6 +3,7 @@ package homes;
 import model.Evento;
 
 import org.apache.commons.collections.Predicate;
+import org.joda.time.DateTime;
 import org.uqbar.commons.model.CollectionBasedHome;
 /**
  * 
@@ -11,6 +12,7 @@ import org.uqbar.commons.model.CollectionBasedHome;
 public class EventoHomeColeccionImpl extends CollectionBasedHome<Evento> {
 
 	public EventoHomeColeccionImpl() {
+		this.create(new Evento(new DateTime(), new DateTime().plusDays(5), "Nada", 5));
 	}
 
 	@Override

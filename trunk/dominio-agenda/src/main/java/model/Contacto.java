@@ -31,6 +31,11 @@ public class Contacto extends Entity implements Nombrable {
 		 this.setProperty(CIUDAD, ciudad);
 	}
 	public DateTime getFecha_nacimiento() {
+		
+		//validacion fecha de nacimiento no es futura
+		if(fecha_nacimiento.isAfterNow())
+			throw new UserException("Fecha de nacimiento es una fecha futura");
+		
 		return fecha_nacimiento;
 	}
 	public void setFecha_nacimiento(DateTime fecha_nacimiento) {
@@ -42,7 +47,7 @@ public class Contacto extends Entity implements Nombrable {
 	public void setNombre(String nombre) {
 		
 		//validacion nombre no vacío
-		if(nombre.isEmpty())
+		if(nombre == null || nombre.isEmpty())
 			throw new UserException("El nombre no puede estar vacío");
 		
 		this.setProperty(NOMBRE,nombre);
@@ -52,9 +57,9 @@ public class Contacto extends Entity implements Nombrable {
 	}
 	public void setTelefono(String telefono) {
 
-		//validacion telefono no vacío
-		if(telefono.isEmpty())
-			throw new UserException("El telefono no puede estar vacío");
+		//validacion telefono no null
+		if(telefono == null)
+			throw new UserException("Debe especificar un telefono");
 
 		this.setProperty(TELEFONO,telefono);
 	}
@@ -88,12 +93,7 @@ public class Contacto extends Entity implements Nombrable {
 	 */
 	public Contacto(String nombre, String telefono, String mail,
 			String observaciones, DateTime fecha_nacimiento, Ciudad cuidad) {
-		super();
-					
-		//validacion fecha de nacimiento no es futura
-		if(fecha_nacimiento.isBeforeNow())
-			throw new UserException("Fecha de nacimiento es una fecha futura");
-		
+		super();		
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.mail = mail;

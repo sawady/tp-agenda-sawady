@@ -1,15 +1,12 @@
 package homes;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.uqbar.commons.model.Application;
 import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.model.Home;
-import org.uqbar.commons.model.ObservableObject;
 
 
 /**

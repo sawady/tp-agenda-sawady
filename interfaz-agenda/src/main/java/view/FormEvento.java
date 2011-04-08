@@ -1,33 +1,26 @@
 package view;
 
-import homes.Agenda;
-import model.Contacto;
 import model.Evento;
 
 import org.uqbar.arena.layout.ColumnLayout;
-import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
-import org.uqbar.arena.windows.WindowOwner;
+import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.commons.model.Home;
 
-public abstract class DialogEvento extends DialogAbstractAgendaElement<Evento> {
+public class FormEvento extends EntityStuffForUI<Evento> {
 
-	public DialogEvento(WindowOwner owner, Evento model, Home<Evento> home) {
-		super(owner, model, home);
+	public FormEvento(Home<Evento> home) {
+		super(home);
 	}
 
-	@Override
-	protected void createMainTemplate(Panel mainPanel) {
-		this.setTitle("ABM de Eventos");
-		super.createMainTemplate(mainPanel);
+	public String getTitle() {
+		return "Eventos";
 	}
 
-	@Override
-	protected void createFormPanel(Panel panel) {
-		
-		Panel form = new Panel(panel);
+	public Panel createFormPanel(Panel form) {
+
 		form.setLayout(new ColumnLayout(2));
 		
 		new Label(form).setText("Fecha Inicial");		
@@ -42,6 +35,20 @@ public abstract class DialogEvento extends DialogAbstractAgendaElement<Evento> {
 		new Label(form).setText("Importancia");		
 		new TextBox(form).bindValueToProperty(Evento.IMPORTANCIA);
 		
+		return form;		
+	}
+
+	@Override
+	public void describeResultsGrid(Table<Evento> table) {
+		table.agregarColumna("Inicio", Evento.FECHA_FIN, 100);
+		table.agregarColumna("Fin", Evento.FECHA_FIN, 100);
+		table.agregarColumna("Descripcion", Evento.DESCRIPCION, 100);
+		table.agregarColumna("Importancia", Evento.IMPORTANCIA, 100);
+	}
+
+	@Override
+	public Evento newInstance() {
+		return new Evento();
 	}
 
 }
