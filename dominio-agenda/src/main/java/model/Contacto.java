@@ -15,13 +15,13 @@ public class Contacto extends Entity implements Nombrable {
 	public static final String MAIL = "mail";
 	public static final String TELEFONO = "telefono";
 	public static final String NOMBRE = "nombre";
-	public static final String FECHA_NACIMIENTO = "fecha_nacimiento";
+	public static final String FECHANAC = "fechanac";
 	public static final String CIUDAD = "ciudad";
 	private String nombre;
 	private String telefono;
 	private String mail;
 	private String observaciones;
-	private DateTime fecha_nacimiento;
+	private DateTime fechanac;
 	private Ciudad ciudad;
 	
 	public Ciudad getCiudad() {
@@ -30,16 +30,20 @@ public class Contacto extends Entity implements Nombrable {
 	public void setCiudad(Ciudad ciudad) {
 		 this.setProperty(CIUDAD, ciudad);
 	}
-	public DateTime getFecha_nacimiento() {
+	public DateTime getFechanac() {		
+		return fechanac;
+	}
+	public void setFechanac(DateTime fecha_nacimiento) {
+
+		if(fecha_nacimiento == null){
+			throw new UserException("Fecha no válida: dd-mm-aa");
+		}	
 		
 		//validacion fecha de nacimiento no es futura
 		if(fecha_nacimiento.isAfterNow())
 			throw new UserException("Fecha de nacimiento es una fecha futura");
 		
-		return fecha_nacimiento;
-	}
-	public void setFecha_nacimiento(DateTime fecha_nacimiento) {
-		this.setProperty(FECHA_NACIMIENTO, fecha_nacimiento);
+		this.setProperty(FECHANAC, fecha_nacimiento);
 	}
 	public String getNombre() {
 		return nombre;
@@ -98,7 +102,7 @@ public class Contacto extends Entity implements Nombrable {
 		this.telefono = telefono;
 		this.mail = mail;
 		this.observaciones = observaciones;
-		this.fecha_nacimiento = fecha_nacimiento;
+		this.fechanac = fecha_nacimiento;
 		this.ciudad = cuidad;
 	}
 

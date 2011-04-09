@@ -27,8 +27,20 @@ public class CiudadHomeColeccionImpl extends CollectionBasedHome<Ciudad> {
 	}
 
 	@Override
-	protected Predicate getCriterio(Ciudad example) {
-		return this.getCriterioTodas();
+	protected Predicate getCriterio(final Ciudad example) {
+		
+		if(example.getNombre() == null)
+			return this.getCriterioTodas();
+		
+		// por nombre
+		return  new Predicate() {
+			@Override
+			public boolean evaluate(Object arg) {
+				Ciudad unaCiudad = (Ciudad) arg;
+				return unaCiudad.getNombre().toLowerCase().
+				contains(example.getNombre().toLowerCase());
+			}
+		};
 	}
 
 }
