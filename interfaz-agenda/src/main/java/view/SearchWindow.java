@@ -46,9 +46,8 @@ public class SearchWindow<E extends Entity, T extends Search<E>> extends SimpleW
 		
 		formPanel.bindContents(SearchByExample.EXAMPLE);
 		
-		this.getEspForm().createFormPanel(formPanel);
+		this.getEspForm().createSearchFromPanel(formPanel);
 	}
-
 
 	@Override
 	protected void createActionsPanel(Panel formBuilder) {

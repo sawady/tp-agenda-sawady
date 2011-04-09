@@ -28,6 +28,8 @@ public abstract class EntityStuffForUI<T extends Entity> {
 	
 	public abstract Panel createFormPanel(Panel panel);
 	
+	public abstract Panel createSearchFromPanel(Panel panel);
+	
 	public abstract void describeResultsGrid(Table<T> table);
 	
 	public abstract T newInstance();

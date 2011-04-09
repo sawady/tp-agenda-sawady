@@ -37,4 +37,9 @@ public class FormCiudad extends EntityStuffForUI<Ciudad> {
 		return new Ciudad();
 	}
 
+	@Override
+	public Panel createSearchFromPanel(Panel panel) {
+		return this.createFormPanel(panel);
+	}
+
 }

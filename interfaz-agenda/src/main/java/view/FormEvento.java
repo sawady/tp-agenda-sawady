@@ -24,10 +24,10 @@ public class FormEvento extends EntityStuffForUI<Evento> {
 		form.setLayout(new ColumnLayout(2));
 		
 		new Label(form).setText("Fecha Inicial");		
-		new TextBox(form).bindValueToProperty(Evento.FECHA_INI);
+		new TextBox(form).bindValueToProperty(Evento.FECHA_INI).setAdapter(new AdapterJodaTime());
 		
 		new Label(form).setText("Fecha Final");		
-		new TextBox(form).bindValueToProperty(Evento.FECHA_FIN);
+		new TextBox(form).bindValueToProperty(Evento.FECHA_FIN).setAdapter(new AdapterJodaTime());
 		
 		new Label(form).setText("Fecha Descripcion");		
 		new TextBox(form).bindValueToProperty(Evento.DESCRIPCION);
@@ -35,7 +35,7 @@ public class FormEvento extends EntityStuffForUI<Evento> {
 		new Label(form).setText("Importancia");		
 		new TextBox(form).bindValueToProperty(Evento.IMPORTANCIA);
 		
-		return form;		
+		return form;
 	}
 
 	@Override
@@ -49,6 +49,11 @@ public class FormEvento extends EntityStuffForUI<Evento> {
 	@Override
 	public Evento newInstance() {
 		return new Evento();
+	}
+
+	@Override
+	public Panel createSearchFromPanel(Panel panel) {
+		return this.createFormPanel(panel);
 	}
 
 }
