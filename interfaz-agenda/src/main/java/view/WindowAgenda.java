@@ -12,8 +12,8 @@ import org.uqbar.lacar.ui.model.Action;
 
 public class WindowAgenda extends SimpleWindow<Agenda> {
 
-	public WindowAgenda(WindowOwner parent, Agenda model) {
-		super(parent, model);
+	public WindowAgenda(WindowOwner parent) {
+		super(parent, Agenda.getInstance());
 	}
 	
 	@Override

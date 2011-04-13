@@ -16,8 +16,7 @@ public class AgendaApplication extends Application {
 
 	@Override
 	protected Window<?> createMainWindow() {
-		return new WindowAgenda(this, new Agenda());
-		//return new SearchWindow<Contacto, SearchByExample<Contacto>>(this, new FormContacto(new Agenda().getHome(Contacto.class)));
+		return new WindowAgenda(this);
 	}
 
 }

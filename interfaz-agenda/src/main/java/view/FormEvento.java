@@ -1,5 +1,6 @@
 package view;
 
+import model.Contacto;
 import model.Evento;
 
 import org.uqbar.arena.layout.ColumnLayout;
@@ -8,6 +9,8 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.commons.model.Home;
+
+import com.uqbar.commons.collections.Transformer;
 
 public class FormEvento extends EntityStuffForUI<Evento> {
 
@@ -40,8 +43,18 @@ public class FormEvento extends EntityStuffForUI<Evento> {
 
 	@Override
 	public void describeResultsGrid(Table<Evento> table) {
-		table.agregarColumna("Inicio", Evento.FECHA_FIN, 100);
-		table.agregarColumna("Fin", Evento.FECHA_FIN, 100);
+		table.agregarColumna("Inicio", Evento.FECHA_INI, 100).bindContentsToTransformer(new Transformer<Evento, String>() {
+			public String transform(Evento evento) {
+				return new AdapterJodaTime().modelToView(evento.getFecha_fin());
+			}
+		});
+;
+		table.agregarColumna("Fin", Evento.FECHA_FIN, 100).bindContentsToTransformer(new Transformer<Evento, String>() {
+			public String transform(Evento evento) {
+				return new AdapterJodaTime().modelToView(evento.getFecha_fin());
+			}
+		});
+		
 		table.agregarColumna("Descripcion", Evento.DESCRIPCION, 100);
 		table.agregarColumna("Importancia", Evento.IMPORTANCIA, 100);
 	}
