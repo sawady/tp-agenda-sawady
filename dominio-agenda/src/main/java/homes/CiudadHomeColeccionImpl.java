@@ -6,7 +6,7 @@ import org.apache.commons.collections.Predicate;
 import org.uqbar.commons.model.CollectionBasedHome;
 /**
  * 
- * @author npasserini
+ * @author sawady
  */
 public class CiudadHomeColeccionImpl extends CollectionBasedHome<Ciudad> {
 

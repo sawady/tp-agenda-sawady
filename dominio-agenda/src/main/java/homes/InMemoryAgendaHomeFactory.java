@@ -11,9 +11,9 @@ import org.uqbar.commons.model.Home;
 /**
  * Implementacion dummy que crea las homes en-memoria
  * 
- * @author jfernandes
+ * @author sawady
  */
-public class InMemoryHomeFactory implements HomeFactory {
+public class InMemoryAgendaHomeFactory implements HomeFactory {
 
 	@Override
 	public void addHomes(Map<Class<?>, Home<?>> homes) {

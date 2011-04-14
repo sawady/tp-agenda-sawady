@@ -3,7 +3,9 @@ package model;
 import org.uqbar.commons.model.Entity;
 
 /**
- * Las ciudades tienen un nombre.
+ * Objeto que representa una ciudad.
+ * 
+ * Una ciudad tiene un nombre
  * @author sawady
  *
  */

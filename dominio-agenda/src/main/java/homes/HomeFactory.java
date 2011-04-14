@@ -5,7 +5,7 @@ import java.util.Map;
 import org.uqbar.commons.model.Home;
 
 /**
- * Strategy object to decouple Videoclub initialization from the actual
+ * Strategy object to decouple the aplication initialization from the actual
  * concrete home instantiations.
  * This allow us to run tests with in-memory homes, while running the application
  * with a real persistence homes.

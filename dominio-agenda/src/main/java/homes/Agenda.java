@@ -15,7 +15,8 @@ import org.uqbar.commons.model.Entity;
 import org.uqbar.commons.model.Home;
 
 /**
- * Agrega, elimina y actualiza ciudades, contactos y eventos
+ * Objeto que posee una home para cada entity
+ * del modelo
  * @author sawady
  *
  */
@@ -25,7 +26,7 @@ public class Agenda extends Entity implements Application {
 	private Map<Class<?>, Home<?>> homes = new HashMap<Class<?>, Home<?>>();
 
 	public Agenda(){
-		new InMemoryHomeFactory().addHomes(this.homes);		
+		new InMemoryAgendaHomeFactory().addHomes(this.homes);		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -43,7 +44,7 @@ public class Agenda extends Entity implements Application {
 	}
 	
 	public static synchronized Agenda initialize() {
-		return initialize(new InMemoryHomeFactory()); //persist with collections in memory
+		return initialize(new InMemoryAgendaHomeFactory()); //persist with collections in memory
 	}
 	
 	public static synchronized Agenda getInstance() {
