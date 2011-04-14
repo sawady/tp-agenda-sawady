@@ -10,9 +10,9 @@ import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.SearchByExample;
 import org.uqbar.lacar.ui.model.Action;
 
-public class WindowAgenda extends SimpleWindow<Agenda> {
+public class AgendaWindow extends SimpleWindow<Agenda> {
 
-	public WindowAgenda(WindowOwner parent) {
+	public AgendaWindow(WindowOwner parent) {
 		super(parent, Agenda.getInstance());
 	}
 	
@@ -31,23 +31,23 @@ public class WindowAgenda extends SimpleWindow<Agenda> {
 
 	@Override
 	protected void addActions(Panel actionsPanel) {
-		PanelBotonera botonera = new PanelBotonera(actionsPanel);
+		PanelBotoneraHorizontal botonera = new PanelBotoneraHorizontal(actionsPanel);
 		
 		botonera.agregarBoton("Contactos", new Action() {			
 			public void execute() {
-				new SearchWindow<Contacto, SearchByExample<Contacto>>(getOwner(), new FormContacto(getModel().getHome(Contacto.class))).open();
+				new AgendaEntitySearchWindow<Contacto, SearchByExample<Contacto>>(getOwner(), new GUIContentContacto(getModel().getHome(Contacto.class))).open();
 			}
 		});
 		
 		botonera.agregarBoton("Eventos", new Action() {
 			public void execute() {
-				new SearchWindow<Evento, SearchByExample<Evento>>(getOwner(), new FormEvento(getModel().getHome(Evento.class))).open();		
+				new AgendaEntitySearchWindow<Evento, SearchByExample<Evento>>(getOwner(), new GUIContentEvento(getModel().getHome(Evento.class))).open();		
 			}
 		});
 		
 		botonera.agregarBoton("Ciudades", new Action() {
 			public void execute() {
-				new SearchWindow<Ciudad, SearchByExample<Ciudad>>(getOwner(), new FormCiudad(getModel().getHome(Ciudad.class))).open();		
+				new AgendaEntitySearchWindow<Ciudad, SearchByExample<Ciudad>>(getOwner(), new GUIContentCiudad(getModel().getHome(Ciudad.class))).open();		
 			}
 		});
 

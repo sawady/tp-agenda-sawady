@@ -16,7 +16,7 @@ public class AgendaApplication extends Application {
 
 	@Override
 	protected Window<?> createMainWindow() {
-		return new WindowAgenda(this);
+		return new AgendaWindow(this);
 	}
 
 }

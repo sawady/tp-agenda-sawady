@@ -4,9 +4,15 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.lacar.ui.model.Action;
 
-public class PanelBotonera extends Panel {
+/**
+ * Panel con horizontal layout
+ * que permite agregar botones.
+ * @author sawady
+ *
+ */
+public class PanelBotoneraHorizontal extends Panel {
 
-	public PanelBotonera(Panel container) {
+	public PanelBotoneraHorizontal(Panel container) {
 		super(container);
 		this.setHorizontalLayout();
 	}

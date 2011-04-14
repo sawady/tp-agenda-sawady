@@ -9,9 +9,9 @@ import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.commons.model.Home;
 
-public class FormCiudad extends EntityStuffForUI<Ciudad> {
+public class GUIContentCiudad extends GUIContentAgendaEntity<Ciudad> {
 
-	public FormCiudad(Home<Ciudad> home) {
+	public GUIContentCiudad(Home<Ciudad> home) {
 		super(home);
 	}
 

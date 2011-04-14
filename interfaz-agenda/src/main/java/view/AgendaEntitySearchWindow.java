@@ -13,19 +13,19 @@ import org.uqbar.commons.model.Search;
 import org.uqbar.commons.model.SearchByExample;
 import org.uqbar.lacar.ui.model.Action;
 
-public class SearchWindow<E extends Entity, T extends Search<E>> extends SimpleWindow<T> {
+public class AgendaEntitySearchWindow<E extends Entity, T extends Search<E>> extends SimpleWindow<T> {
 	
-	private EntityStuffForUI<E> espForm;
+	private GUIContentAgendaEntity<E> espForm;
 
-	public EntityStuffForUI<E> getEspForm() {
+	public GUIContentAgendaEntity<E> getEspForm() {
 		return espForm;
 	}
 
-	public void setEspForm(EntityStuffForUI<E> espForm) {
+	public void setEspForm(GUIContentAgendaEntity<E> espForm) {
 		this.espForm = espForm;
 	}
 
-	public SearchWindow(WindowOwner owner, EntityStuffForUI<E> espForm) {
+	public AgendaEntitySearchWindow(WindowOwner owner, GUIContentAgendaEntity<E> espForm) {
 		super(owner, (T) espForm.getSearch());
 		this.espForm = espForm;
 	}
@@ -110,14 +110,14 @@ public class SearchWindow<E extends Entity, T extends Search<E>> extends SimpleW
 
 	
 	public void startCreation() {
-		DialogAgendaElement<E> editor = this.getEspForm().creationEditor(this.getOwner());
+		AgendaEntityDialog<E> editor = this.getEspForm().creationEditor(this.getOwner());
 		editor.onAccept(new MessageSend(this.getModel(), Search.SEARCH));
 		editor.open();
 		this.getModel().search();
 	}
 	
 	public void startEdition() {
-		DialogAgendaElement<E> editor = this.getEspForm().modifyEditor(this.getModel().getSelected(), this.getOwner());
+		AgendaEntityDialog<E> editor = this.getEspForm().modifyEditor(this.getModel().getSelected(), this.getOwner());
 		editor.onAccept(new MessageSend(this.getModel(), Search.SEARCH));
 		editor.open();
 		this.getModel().search();

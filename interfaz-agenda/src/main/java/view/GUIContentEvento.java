@@ -12,9 +12,9 @@ import org.uqbar.commons.model.Home;
 
 import com.uqbar.commons.collections.Transformer;
 
-public class FormEvento extends EntityStuffForUI<Evento> {
+public class GUIContentEvento extends GUIContentAgendaEntity<Evento> {
 
-	public FormEvento(Home<Evento> home) {
+	public GUIContentEvento(Home<Evento> home) {
 		super(home);
 	}
 

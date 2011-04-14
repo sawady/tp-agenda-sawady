@@ -7,28 +7,28 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.commons.model.Entity;
 
-public class DialogAgendaElement<T extends Entity> extends Dialog<T> {
+public class AgendaEntityDialog<T extends Entity> extends Dialog<T> {
 
-	private EntityStuffForUI<T> espform;
-	private ActionEntity<T> action;
+	private GUIContentAgendaEntity<T> espform;
+	private ActionWithEntity<T> action;
 	
-	public ActionEntity<T> getAction() {
+	public ActionWithEntity<T> getAction() {
 		return action;
 	}
 
-	public void setAction(ActionEntity<T> action) {
+	public void setAction(ActionWithEntity<T> action) {
 		this.action = action;
 	}
 
-	public EntityStuffForUI<T> getEspform() {
+	public GUIContentAgendaEntity<T> getEspform() {
 		return espform;
 	}
 
-	public void setEspform(EntityStuffForUI<T> espform) {
+	public void setEspform(GUIContentAgendaEntity<T> espform) {
 		this.espform = espform;
 	}
 
-	public DialogAgendaElement(WindowOwner owner, EntityStuffForUI<T> espform, ActionEntity<T> action) {
+	public AgendaEntityDialog(WindowOwner owner, GUIContentAgendaEntity<T> espform, ActionWithEntity<T> action) {
 		super(owner, action.getEntity());
 		this.espform = espform;
 		this.action = action;

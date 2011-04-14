@@ -18,9 +18,9 @@ import org.uqbar.commons.model.Home;
 
 import com.uqbar.commons.collections.Transformer;
 
-public class FormContacto extends EntityStuffForUI<Contacto> {
+public class GUIContentContacto extends GUIContentAgendaEntity<Contacto> {
 	
-	public FormContacto(Home<Contacto> home) {
+	public GUIContentContacto(Home<Contacto> home) {
 		super(home);
 	}
 
