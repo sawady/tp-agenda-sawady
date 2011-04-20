@@ -50,7 +50,7 @@ public class Contacto extends Entity implements Nombrable {
 	}
 	public void setNombre(String nombre) {
 		
-		//validacion nombre no vacío
+		//validacion nombre
 		if(nombre == null || nombre.isEmpty())
 			throw new UserException("El nombre no puede estar vacío");
 		
@@ -60,10 +60,6 @@ public class Contacto extends Entity implements Nombrable {
 		return telefono;
 	}
 	public void setTelefono(String telefono) {
-
-		//validacion telefono no null
-		if(telefono == null)
-			throw new UserException("Debe especificar un telefono");
 
 		this.setProperty(TELEFONO,telefono);
 	}
