@@ -45,17 +45,20 @@ public class Contacto extends Entity implements Nombrable {
 		
 		this.setProperty(FECHANAC, fecha_nacimiento);
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		
 		//validacion nombre
-		if(nombre == null || nombre.isEmpty())
-			throw new UserException("El nombre no puede estar vacío");
+//		if(nombre == null || nombre.isEmpty())
+//			throw new UserException("El nombre no puede estar vacío");
 		
 		this.setProperty(NOMBRE,nombre);
 	}
+	
 	public String getTelefono() {
 		return telefono;
 	}

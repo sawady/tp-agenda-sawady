@@ -13,11 +13,11 @@ public class ContactoHomeColeccionImpl extends CollectionBasedHome<Contacto> {
 		this.create(new Contacto("Elias", "42245630", "elias@gmail.com",
 				"Loco loco", new DateTime().minusYears(40), new Ciudad("Quilmes")));
 		this.create(new Contacto("Vale", "42245630", "vale@gmail.com",
-				"Loco loco", new DateTime().minusYears(40), new Ciudad("Bernal")));
+				"Loco un poco", new DateTime().minusYears(40), new Ciudad("Bernal")));
 		this.create(new Contacto("Martin", "42245630", "martin@gmail.com",
-				"Loco loco", new DateTime().minusYears(40), new Ciudad("Quilmes")));
+				"Nada mas", new DateTime().minusYears(40), new Ciudad("Quilmes")));
 		this.create(new Contacto("Zaba", "42245630", "zaba@gmail.com",
-				"Loco loco", new DateTime().minusYears(40), new Ciudad("Bera")));
+				"Casi casi", new DateTime().minusYears(40), new Ciudad("Bera")));
 	}
 	
 	private Predicate mismoNombre(final Contacto example){
