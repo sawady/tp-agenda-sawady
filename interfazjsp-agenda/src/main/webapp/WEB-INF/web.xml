@@ -3,17 +3,58 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	<display-name>HAKUNA MATATA</display-name>
+	<display-name>Agenda Contactos</display-name>
 
 	<servlet>
-		<servlet-name>HakunaServlet</servlet-name>
-		<servlet-class>view.HakunaServlet</servlet-class>
+		<servlet-name>SearchServlet</servlet-name>
+		<servlet-class>view.SearchServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DetalleContactoServlet</servlet-name>
+		<servlet-class>view.DetalleContactoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditarContactoServlet</servlet-name>
+		<servlet-class>view.EditarContactoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidarEditarServlet</servlet-name>
+		<servlet-class>view.ValidarEditarServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CrearContactoServlet</servlet-name>
+		<servlet-class>view.CrearContactoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BorrarContactoServlet</servlet-name>
+		<servlet-class>view.BorrarContactoServlet</servlet-class>
+	</servlet>	
+		
 	<servlet-mapping>
-		<servlet-name>HakunaServlet</servlet-name>
+		<servlet-name>SearchServlet</servlet-name>
 		<url-pattern>/search</url-pattern>
 	</servlet-mapping>
-
+	<servlet-mapping>
+		<servlet-name>DetalleContactoServlet</servlet-name>
+		<url-pattern>/detalleContacto</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditarContactoServlet</servlet-name>
+		<url-pattern>/editarContacto</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidarEditarServlet</servlet-name>
+		<url-pattern>/validarEditar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CrearContactoServlet</servlet-name>
+		<url-pattern>/crearContacto</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BorrarContactoServlet</servlet-name>
+		<url-pattern>/borrarContacto</url-pattern>
+	</servlet-mapping>
+	
 	<taglib>
 		<taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
 		<taglib-location>c.tld</taglib-location>
