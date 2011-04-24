@@ -5,20 +5,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>interfazweb-sawady</title>
+		<title>Agenda: Contactos</title>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 <body>
 
-	<h1>HAKUNA MATATA, UNA FORMA DE SER</h1>
+	<h1>Búsqueda de Contactos</h1>
 	
 	<form method="get" action="search">
-		<input type="text" name="titulo" value="${param.titulo}" />
+	
+		Nombre: <input type="text" name="nombre" value="${param.nombre}"/>
+		<br />
+		
+		Telefono: <input type="text" name="telefono" value="${param.telefono}" />
+		<br />
+		
+		Mail: <input type="text" name="mail" value="${param.mail}" />
+		<br />
+		
+		Ciudad: <input type="text" name="ciudad" value="${param.ciudad}" />
+		<br />
+		
 		<input type="submit" value="Buscar"/>
 	</form>
 	
-	<h2>Respuestas:</h2>	
-	<c:if test="${requestScope.tituloResult != null}">
-	<a href="http://www.google.com">${requestScope.tituloResult}</a>
+	<a href="crearContacto.jsp">Crear un contacto nuevo</a>
+	
+	<c:if test="${requestScope.contactos != null}" >
+		<h2>Contactos encontrados:</h2>
+		<table>
+			<tr>
+				<th>Nombre</th>
+				<th>Tel</th>
+				<th>Mail</th>
+				<th>Ciudad</th>
+				<th>Acciones</th>
+			</tr>
+			<c:forEach items="${requestScope.contactos}" var="contacto" varStatus="status">
+				<tr>
+					<td>${contacto.nombre}</td>
+			    	<td>${contacto.telefono}</td>
+			    	<td>${contacto.mail}</td>
+			    	<td>${contacto.ciudad}</td>
+					<td><a href="detalleContacto?id=${contacto.id}">mas info</a>
+					<a href="editarContacto?id=${contacto.id}">editar</a>
+					<a href="borrarContacto?id=${contacto.id}">borrar</a></td>
+			    </tr>
+			</c:forEach>
+		</table>
+		
+		<form method="post" action="search">
+		
+		<input type="submit" value="Limpiar Búsqueda"/>
+		
+		</form>
+		
 	</c:if>
 		
 </body>
